@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title><%= client.config.website.siteName %> - Home</title>
+    <meta property="og:site_name" content="<%= client.config.website.siteName %> - Home">
+    <meta property="og:title" content="<%= client.config.website.siteName %>">
+    <meta property="og:image" content="assets/logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="<%= client.config.website.botName %> is an application designed to remove toxic and unsafe users from your companies, business's, and overall communities! With an advanced API, well known and up-to-date repuable team, we strive to keep YOU as safe as possible!">
+    <meta name="keywords" content="Ban Database">
+    <meta name="theme-color" content="#2F3136">
+    <meta name="twitter:card" content="summary">
+    <link href="assets/logo.png" rel="icon">
+    <link href="assets/logo.png" rel="apple-touch-icon">
+    
+    <style>
+        body {
+            background-image: url('assets/bg.jpg');
+            background-position: 0% 0%, center;
+            background-repeat: repeat, repeat;
+            background-size: auto, cover;
+        }
+        /*
+            THIS IS NOT ACTUALLY AN ERROR, IGNORE IT
+        */
+        .bg-dark {
+            background-color: <%= client.config.website.themeColor %> !important
+        }
+        /*
+            THIS IS NOT ACTUALLY AN ERROR, IGNORE IT
+        */
+        .jumbotron {
+            color: white;
+            padding:2rem 1rem;
+            margin-bottom:2rem;
+            background-color: rgba(0, 0, 0, 0);
+            border-radius:.3rem
+        }
+        @media (min-width:576px){
+            .jumbotron{
+                padding:4rem 2rem
+            }
+        }
+        @media screen and (min-width: 1080px) {
+            body {
+                background-image: url('assets/bg.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+        .jumbotron-fluid{
+            padding-right:0;
+            padding-left:0;
+            border-radius:0
+        }
+        footer {
+            background-color: #343a40;
+            position: absolute;
+            text-align: center;
+            color: #ffffff;
+            bottom: 0;
+            width: 100%;
+            height: 4.5em;
+        }
+        footer div {
+            height: 0.6em;
+        }
+        footer p .footerCreds {
+            text-decoration: none;
+            color: #ffffff;
+            top: 50%;
+            transition: 600ms;
+            transition-property: color;
+        }
+        footer p .footerCreds:hover {
+            color: #0084ff;
+        }
+
+        /* Scrollbar */
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        /* Track */
+        ::-webkit-scrollbar-track {
+            /* background: #f1f1f1; */
+            background: rgba(255, 0, 0, 0);
+            /* background-color: transparent; */
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: rgba(136, 136, 136, 0.075);
+        }
+        
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(136, 136, 136, 0.445);
+        }
+
+        ::-webkit-scrollbar-corner {
+            background: rgba(136, 136, 136, 0.445);
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><%= client.config.website.botName %></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://discord.com/api/oauth2/authorize?client_id=<%= client.user.id %>&permissions=8&scope=bot%20applications.commands">Invite</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<%= client.config.supportserver %>">Discord</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<%= client.config.website.siteDomain %>/info">API</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4"><%= client.config.website.siteName %></h1>
+          <p class="lead"><%= client.config.website.botName %> is an application designed to remove toxic and unsafe users from your companies, business's, and overall communities! With an advanced API, well known and up-to-date repuable team, we strive to keep YOU as safe as possible!</p>
+        </div>
+    </div>
+
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-3">
+                <div class="card text-white bg-dark" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">Server Count</h5>
+                      <p class="card-text text-center"><%= client.guilds.cache.size %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card text-white bg-dark" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">User Count</h5>
+                      <p class="card-text text-center"><%= client.users.cache.size %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card text-white bg-dark" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">Ban Count</h5>
+                      <p class="card-text text-center"><%= bans %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark">
+        <div></div>
+        <p>© 2022, <a href="<%= client.config.website.footerLink %>" class="footerCreds"><%= client.config.website.footer %></a><br>Designed by <a href="https://hyperz.net/store/ban-database" class="footerCreds">Hyperz#0001</a></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
